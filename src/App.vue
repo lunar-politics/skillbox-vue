@@ -55,8 +55,8 @@ export default {
       if (this.filterCategoryId > 0) {
         filProducts = filProducts.filter((product) => product.categoryId === this.filterCategoryId);
       }
-      if (this.filterColor > 0) {
-        filProducts = filProducts.filter((product) => product.price < this.filterPriceTo);
+      if (this.filterColor) {
+        filProducts = filProducts.filter((product) => product.colorId === this.filterColor);
       }
       return filProducts;
     },

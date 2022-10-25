@@ -22,7 +22,7 @@ export default [
   {
     id: 5,
     title: 'Красный',
-    hex: '#FF6B000;',
+    hex: '#FF6B00;',
   },
   {
     id: 6,
