@@ -126,7 +126,7 @@ export default {
       currentPriceFrom: 0,
       currentPriceTo: 0,
       currentCategoryId: 0,
-      currentColor: '',
+      currentColor: 0,
     };
   },
   props: ['priceFrom', 'priceTo', 'categoryId', 'color'],

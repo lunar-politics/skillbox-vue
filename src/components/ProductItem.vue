@@ -15,14 +15,15 @@
             </span>
 
             <ul class="colors colors--black">
-              <li class="colors__item">
+              <li class="colors__item" v-for="color in colorsId" :key="color.index">
                 <label class="colors__label">
-                  <input class="colors__radio sr-only" type="radio" value="#73B6EA" v-model="color">
-                  <span class="colors__value" style="background-color: #73B6EA;">
+                  <input class="colors__radio sr-only" type="radio" :value="color">
+                  <span class="colors__value"
+                  :style="`background-color: ${colors.find(item => item.id == color).hex}`">
                   </span>
                 </label>
               </li>
-              <li class="colors__item">
+              <!-- <li class="colors__item">
                 <label class="colors__label">
                   <input class="colors__radio sr-only" type="radio" value="#8BE000" v-model="color">
                   <span class="colors__value" style="background-color: #8BE000;">
@@ -35,18 +36,25 @@
                   <span class="colors__value" style="background-color: #222;">
                   </span>
                 </label>
-              </li>
+              </li> -->
             </ul>
           </li>
 </template>
 
 <script>
+import colors from '../data/colors';
+
 export default {
-  data() {
-    return {
-      color: '#73B6EA',
-    };
+  props: ['title', 'price', 'image', 'colorsId'],
+  computed: {
+    colors() {
+      return colors;
+    },
   },
-  props: ['title', 'price', 'image'],
+  methods: {
+    // getColors(color) {
+    //   return colors.find((item) => item.id === color).hex;
+    // },
+  },
 };
 </script>

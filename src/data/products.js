@@ -2,7 +2,7 @@ export default [
   {
     id: 1,
     categoryId: 1,
-    colorId: 1,
+    colorIds: [1, 2],
     title: 'Льняная каша с изюмом и кунжутом',
     price: 350,
     image: '/img/IMG_9690.jpg',
@@ -10,7 +10,7 @@ export default [
   {
     id: 2,
     categoryId: 1,
-    colorId: 3,
+    colorIds: [1, 2, 3],
     title: 'Льняная каша с кэробом и кунжутом',
     price: 350,
     image: '/img/IMG_9695.jpg',
@@ -18,7 +18,7 @@ export default [
   {
     id: 3,
     categoryId: 1,
-    colorId: 4,
+    colorIds: [1],
     title: 'Льняная каша с яблоком и корице',
     price: 350,
     image: '/img/IMG_9697.jpg',
@@ -26,7 +26,7 @@ export default [
   {
     id: 4,
     categoryId: 2,
-    colorId: 2,
+    colorIds: [1, 5, 6],
     title: 'Каша из белого льна с тыквой и изюмом',
     price: 400,
     image: '/img/IMG_1666.jpg',
@@ -34,7 +34,7 @@ export default [
   {
     id: 5,
     categoryId: 2,
-    colorId: 5,
+    colorIds: [1, 5, 6, 7],
     title: 'Каша из белого льна с черносливом и кэробом',
     price: 450,
     image: '/img/IMG_1671.jpg',
@@ -42,7 +42,7 @@ export default [
   {
     id: 6,
     categoryId: 2,
-    colorId: 6,
+    colorIds: [3, 4, 5],
     title: 'Каша из белого льна без добавок',
     price: 450,
     image: '/img/IMG_1675.jpg',
@@ -50,7 +50,7 @@ export default [
   {
     id: 7,
     categoryId: 3,
-    colorId: 7,
+    colorIds: [3, 4],
     title: 'Шелковица в шоколадной глазури',
     price: 300,
     image: '/img/IMG_1675.jpg',
@@ -58,7 +58,7 @@ export default [
   {
     id: 8,
     categoryId: 3,
-    colorId: 2,
+    colorIds: [4, 7],
     title: 'Топинамбур в шоколадной глазури',
     price: 250,
     image: '/img/IMG_7574.jpg',
@@ -66,7 +66,7 @@ export default [
   {
     id: 9,
     categoryId: 3,
-    colorId: 3,
+    colorIds: [3],
     title: 'Клюква в шоколадной глазури',
     price: 350,
     image: '/img/IMG_7571.jpg',
