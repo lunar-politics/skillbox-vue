@@ -2,17 +2,17 @@
           <li class="catalog__item">
             <a class="catalog__pic" href="#"
             @click.prevent="$emit('gotoPage', 'product', {id: product.id})">
-              <img :src="image" :alt="title">
+              <img :src="product.image" :alt="product.title">
             </a>
 
             <h3 class="catalog__title">
               <a href="#">
-               {{ title }}
+               {{ product.title }}
               </a>
             </h3>
 
             <span class="catalog__price">
-             {{ price }} ₽
+             {{ product.price }} ₽
             </span>
 
             <ul class="colors colors--black">
@@ -32,7 +32,7 @@
 import colors from '../data/colors';
 
 export default {
-  props: ['title', 'price', 'image', 'colorsId'],
+  props: ['colorsId', 'product'],
   computed: {
     colors() {
       return colors;
