@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <main class="content container">
     <div class="content__top content__top--catalog">
@@ -13,8 +14,7 @@
       :price-to.sync="filterPriceTo" :category-id.sync="filterCategoryId"
       :color.sync="filterColor"/>
       <section class="catalog">
-        <ProductList :products="products"
-        @gotoPage="(pageName, pageParams) => $emit('gotoPage', pageName, pageParams)" />
+        <ProductList :products="products" />
         <BasePagination v-model="page" :count="countProducts" :per-page="productsPerPage" />
        </section>
     </div>
@@ -53,7 +53,15 @@ export default {
         filProducts = filProducts.filter((product) => product.categoryId === this.filterCategoryId);
       }
       if (this.filterColor > 0) {
-        filProducts = filProducts.filter((product) => product.colorIds.includes(this.filterColor));
+        const filtredColorProducts = [];
+        filProducts.forEach((product) => {
+          product.colors.forEach((color) => {
+            if (color.id === this.filterColor) {
+              filtredColorProducts.push(product);
+            }
+          });
+        });
+        filProducts = filtredColorProducts;
       }
       return filProducts;
     },
