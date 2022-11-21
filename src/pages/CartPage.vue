@@ -26,6 +26,7 @@
     <section class="cart">
       <form class="cart__form form" action="#" method="POST">
         <div class="cart__field">
+          <Preloader v-if="productsLoading" />
           <ul class="cart__list">
             <CartItem v-for="item in products" :key="item.productId" :item="item" />
           </ul>
@@ -53,12 +54,23 @@
 import numberFormat from '@/helpers/numberFormat';
 import { mapGetters } from 'vuex';
 import CartItem from '@/components/CartItem.vue';
+import Preloader from '@/components/Preloader.vue';
 
 export default {
   filters: { numberFormat },
-  components: { CartItem },
+  components: { CartItem, Preloader },
   computed: {
     ...mapGetters({ products: 'cartDetailProducts', totalPrice: 'cartTotalPrice' }),
+    productsLoading() {
+      return this.$store.state.productsLoading;
+    },
+  },
+
+  watch: {
+    // eslint-disable-next-line object-shorthand
+    '$store.state.productsLoading'() {
+      this.productsLoading();
+    },
   },
 };
 </script>

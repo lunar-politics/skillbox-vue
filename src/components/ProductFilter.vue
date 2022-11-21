@@ -34,9 +34,9 @@
             <ul class="colors">
               <li class="colors__item" v-for="color in colors" :key="color.id">
                 <label class="colors__label">
-                  <input class="colors__radio sr-only" type="radio" name="color"
+                  <input class="colors__radio sr-only" type="radio" :name="color.title"
                   :value="color.id" v-model="currentColor">
-                  <span class="colors__value" :style="`background-color: ${color.hex}`">
+                  <span class="colors__value" :style="`background-color: ${color.code}`">
                   </span>
                 </label>
               </li>
@@ -117,8 +117,8 @@
 </template>
 
 <script>
-import categories from '../data/categories';
-import colors from '../data/colors';
+import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
 export default {
   data() {
@@ -127,15 +127,17 @@ export default {
       currentPriceTo: 0,
       currentCategoryId: 0,
       currentColor: 0,
+      categoriesData: null,
+      colorsData: null,
     };
   },
   props: ['priceFrom', 'priceTo', 'categoryId', 'color'],
   computed: {
     categories() {
-      return categories;
+      return this.categoriesData ? this.categoriesData.items : [];
     },
     colors() {
-      return colors;
+      return this.colorsData ? this.colorsData.items : [];
     },
   },
   watch: {
@@ -165,6 +167,20 @@ export default {
       this.$emit('update:categoryId', 0);
       this.$emit('update:color', '');
     },
+    loadCategories() {
+      axios.get(`${API_BASE_URL}/api/productCategories`)
+        // eslint-disable-next-line arrow-parens, no-return-assign
+        .then(response => this.categoriesData = response.data);
+    },
+    loadColors() {
+      axios.get(`${API_BASE_URL}/api/colors`)
+        // eslint-disable-next-line arrow-parens, no-return-assign
+        .then(response => this.colorsData = response.data);
+    },
+  },
+  created() {
+    this.loadCategories();
+    this.loadColors();
   },
 };
 </script>

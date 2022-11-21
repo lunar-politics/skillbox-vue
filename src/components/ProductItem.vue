@@ -20,7 +20,7 @@
                 <label class="colors__label">
                   <input class="colors__radio sr-only" type="radio" :value="color">
                   <span class="colors__value"
-                  :style="`background-color: ${color.hex}`">
+                  :style="`background-color: ${color.code}`">
                   </span>
                 </label>
               </li>
