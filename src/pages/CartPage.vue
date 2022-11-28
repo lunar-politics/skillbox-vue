@@ -65,12 +65,5 @@ export default {
       return this.$store.state.productsLoading;
     },
   },
-
-  watch: {
-    // eslint-disable-next-line object-shorthand
-    '$store.state.productsLoading'() {
-      this.productsLoading();
-    },
-  },
 };
 </script>
