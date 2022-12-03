@@ -11,7 +11,7 @@
     </span>
 
     <div class="product__counter form__counter">
-      <button type="button" aria-label="Убрать один товар">
+      <button type="button" aria-label="Убрать один товар" @click="reduceAmount">
         <svg width="10" height="10" fill="currentColor">
           <use xlink:href="#icon-minus"></use>
         </svg>
@@ -19,7 +19,7 @@
 
       <input type="text" v-model.number="amount" name="count">
 
-      <button type="button" aria-label="Добавить один товар">
+      <button type="button" aria-label="Добавить один товар" @click="increaseAmount">
         <svg width="10" height="10" fill="currentColor">
           <use xlink:href="#icon-plus"></use>
         </svg>
@@ -60,6 +60,14 @@ export default {
   },
   methods: {
     ...mapActions(['deleteProduct']),
+    increaseAmount() {
+      this.amount += 1;
+    },
+    reduceAmount() {
+      if (this.amount > 0) {
+        this.amount -= 1;
+      }
+    },
   },
 };
 

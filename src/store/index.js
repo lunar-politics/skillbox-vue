@@ -111,6 +111,7 @@ export default new Vuex.Store({
       context.commit('toggleLoading');
       context.commit('updateCartProductAmount', { productId, amount });
       if (amount < 1) {
+        context.commit('toggleLoading');
         return;
       }
       // eslint-disable-next-line consistent-return
