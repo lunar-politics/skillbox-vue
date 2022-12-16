@@ -32,7 +32,7 @@
       <form class="cart__form form" action="#" method="POST" @submit.prevent="order">
         <div class="cart__field">
           <Preloader v-if="orderLoading" />
-          <div class="cart__data">
+          <div class="cart__data" v-else>
             <BaseFormText v-model="formData.name" :error="formError.name" title="ФИО" placeholder="Введите ваше полное имя" />
             <BaseFormText v-model="formData.address" :error="formError.address" title="Адрес доставки" placeholder="Введите ваш адрес" />
             <BaseFormText v-model="formData.phone" :error="formError.phone" title="Телефон" placeholder="Введите ваш телефон" type="tel"/>
