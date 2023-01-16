@@ -33,14 +33,14 @@ export default {
   components: {
     OrderItem,
   },
-  props: ['formErrorMessage'],
+  props: ['formErrorMessage', 'products'],
   // data() {
   //   return {
   //     formErrorMessage: '',
   //   };
   // },
   computed: {
-    ...mapGetters({ products: 'cartDetailProducts', totalPrice: 'cartTotalPrice' }),
+    ...mapGetters({ totalPrice: 'cartTotalPrice' }),
     // formErrorMessage() {
     //   return this.$store.state.orderInfo.error.response.data.error.message;
     // },

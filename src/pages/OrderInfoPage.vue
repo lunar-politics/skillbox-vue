@@ -76,17 +76,7 @@
             </li>
           </ul>
         </div>
-        <OrderSummary />
-        <!-- <div class="cart__block">
-          <ul class="cart__orders">
-            <OrderItem v-for="item in products" :key="item.productId" :item="item" />
-          </ul>
-
-          <div class="cart__total">
-            <p>Доставка: <b>500 ₽</b></p>
-            <p>Итого: <b>{{ products.length }}</b> товара на сумму <b>{{ totalPrice | numberFormat }} ₽</b></p>
-          </div>
-        </div> -->
+        <OrderSummary :formErrorMessage="formErrorMessage" :products="products" />
       </form>
     </section>
   </main>
@@ -107,6 +97,9 @@ export default {
   computed: {
     order() {
       return this.$store.state.orderInfo;
+    },
+    products() {
+      return this.$store.state.orderInfo.basket.items;
     },
   },
 };

@@ -83,13 +83,14 @@
             </ul>
           </div>
         </div>
-        <OrderSummary :formErrorMessage="formErrorMessage" />
+        <OrderSummary :formErrorMessage="formErrorMessage" :products="products" />
       </form>
     </section>
   </main>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import BaseFormText from '@/components/BaseFormText.vue';
 import BaseFormTextarea from '@/components/BaseFormTextarea.vue';
 import OrderSummary from '@/components/OrderSummary.vue';
@@ -108,6 +109,9 @@ export default {
       orderLoading: false,
       formErrorMessage: '',
     };
+  },
+  computed: {
+    ...mapGetters({ products: 'cartDetailProducts' }),
   },
   methods: {
     order() {
