@@ -83,7 +83,7 @@
             </ul>
           </div>
         </div>
-        <OrderSummary :formErrorMessage="formErrorMessage" :products="products" />
+        <OrderSummary :formErrorMessage="formErrorMessage" :products="products" :totalPrice="totalPrice"/>
       </form>
     </section>
   </main>
@@ -112,6 +112,7 @@ export default {
   },
   computed: {
     ...mapGetters({ products: 'cartDetailProducts' }),
+    ...mapGetters({ totalPrice: 'cartTotalPrice' }),
   },
   methods: {
     order() {

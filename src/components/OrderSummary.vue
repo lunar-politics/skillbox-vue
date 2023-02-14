@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+// import { mapGetters } from 'vuex';
 import numberFormat from '@/helpers/numberFormat';
 import OrderItem from '@/components/OrderItem.vue';
 
@@ -33,14 +33,14 @@ export default {
   components: {
     OrderItem,
   },
-  props: ['formErrorMessage', 'products'],
+  props: ['formErrorMessage', 'products', 'totalPrice'],
   // data() {
   //   return {
   //     formErrorMessage: '',
   //   };
   // },
   computed: {
-    ...mapGetters({ totalPrice: 'cartTotalPrice' }),
+    // ...mapGetters({ totalPrice: 'cartTotalPrice' }),
     // formErrorMessage() {
     //   return this.$store.state.orderInfo.error.response.data.error.message;
     // },

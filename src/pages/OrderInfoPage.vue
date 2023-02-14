@@ -76,7 +76,7 @@
             </li>
           </ul>
         </div>
-        <OrderSummary :formErrorMessage="formErrorMessage" :products="products" />
+        <OrderSummary :formErrorMessage="formErrorMessage" :products="products" :totalPrice="totalPrice" />
       </form>
     </section>
   </main>
@@ -99,7 +99,13 @@ export default {
       return this.$store.state.orderInfo;
     },
     products() {
-      return this.$store.state.orderInfo.basket.items;
+      return this.$store.state.orderInfo.basket.items.map((item) => ({
+        ...item,
+        amount: item.quantity,
+      }));
+    },
+    totalPrice() {
+      return this.$store.state.orderInfo.totalPrice;
     },
   },
 };
